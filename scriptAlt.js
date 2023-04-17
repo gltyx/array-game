@@ -115,7 +115,7 @@ reset()
 
 //If the user confirms the hard reset, resets all variables, saves and refreshes the page
 function hardReset() {
-  if (confirm("Are you sure you want to reset? You will lose everything!")) {
+  if (confirm("您确定要重置吗？ 你会失去一切！")) {
     reset()
     save()
     location.reload()
@@ -138,14 +138,14 @@ function setAutoSave() {
 function exportGame() {
   save()
   navigator.clipboard.writeText(btoa(JSON.stringify(game))).then(function() {
-    alert("Copied to clipboard!")
+    alert("已复制到剪贴板!")
   }, function() {
     alert("Error copying to clipboard, try again...")
   });
 }
 
 function importGame() {
-  loadgame = JSON.parse(atob(prompt("Input your save here:")))
+  loadgame = JSON.parse(atob(prompt("在此处粘贴您的存档:")))
   if (loadgame && loadgame != null && loadgame != "") {
     reset()
     loadGame(loadgame)
@@ -737,17 +737,17 @@ function buyUpgrade(x, y) {
 function prestigeConfirm(x) {
   if (x == 1) {
     if (game.array[0].lt(1e10)) {
-      alert("You don't have enough A to reset for B!")
+      alert("您没有足够的 A 来重置 B！")
     }
-    else if (!game.confirmations[0] || confirm("Are you sure you want to reset for B?")) {
+    else if (!game.confirmations[0] || confirm("您确定要为 B 重置吗？")) {
       prestige(1)
     }
   }
   else if (x == 2) {
     if (game.array[1].lt(1e10)) {
-      alert("You don't have enough B to reset for C!")
+      alert("您没有足够的 B 来重置 C！")
     }
-    else if (!game.confirmations[1] || confirm("Are you sure you want to reset for C?")) {
+    else if (!game.confirmations[1] || confirm("您确定要为 C 重置吗？")) {
       prestige(2)
     }
   }
@@ -825,7 +825,7 @@ function buyMaxABoosterators() {
 
 function enterChallenge(x) {
   if (x != game.currentChallenge) {
-    if (confirm("Are you sure you want to enter this challenge?")) {
+    if (confirm("你确定要参加这个挑战吗？")) {
       game.currentChallenge = x
 			for (i=0;i<4;i++) {
 				if (i != x-1) {
@@ -838,7 +838,7 @@ function enterChallenge(x) {
       if (x <= 4) prestige(1)
     }
   }
-  else if (confirm("Are you sure you want to leave this challenge early?")) {
+  else if (confirm("您确定要提前离开这个挑战吗？")) {
     game.currentChallenge = 0
     if (x <= 4) {
       $(".challenge").eq(x - 1).css("border", "3px solid #00f")
