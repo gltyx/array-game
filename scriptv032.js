@@ -122,7 +122,7 @@ reset()
 
 //If the user confirms the hard reset, resets all variables, saves and refreshes the page
 function hardReset() {
-  if (confirm("Are you sure you want to reset? You will lose everything!")) {
+  if (confirm("您确定要重置吗？ 你会失去一切！")) {
     reset()
     save()
     location.reload()
@@ -979,25 +979,25 @@ function buyUpgrade(x, y) {
 function prestigeConfirm(x) {
   if (x == 1) {
     if (game.array[0].lt(1e10)) {
-      alert("You don't have enough A to reset for B!")
+      alert("你没有足够的 A 去重置为 B!")
     }
-    else if (!game.confirmations[0] || confirm("Are you sure you want to reset for B?")) {
+    else if (!game.confirmations[0] || confirm("您确定要重置为 B?")) {
       prestige(1)
     }
   }
   else if (x == 2) {
     if (game.array[1].lt(1e10)) {
-      alert("You don't have enough B to reset for C!")
+      alert("你没有足够的 B 去重置为 C!")
     }
-    else if (!game.confirmations[1] || confirm("Are you sure you want to reset for C?")) {
+    else if (!game.confirmations[1] || confirm("您确定要重置为 C?")) {
       prestige(2)
     }
   }
 	else if (x == 3) {
     if (game.array[2].lt(1e10)) {
-      alert("You don't have enough C to reset for D!")
+      alert("你没有足够的 C 去重置为 D!")
     }
-    else if (!game.confirmations[2] || confirm("Are you sure you want to reset for D?")) {
+    else if (!game.confirmations[2] || confirm("您确定要重置为 D?")) {
       prestige(3)
     }
   }
@@ -1098,7 +1098,7 @@ function buyMaxABoosterators(x=1) {
 
 function enterChallenge(x) {
   if (x != game.currentChallenge) {
-    if (confirm("Are you sure you want to enter this challenge?")) {
+    if (confirm("你确定要进入这个挑战吗?")) {
       game.currentChallenge = x
 			for (i=0;i<8;i++) {
 				if (i <= 3) {
@@ -1116,7 +1116,7 @@ function enterChallenge(x) {
 			else if (x <= 8) {prestige(2)}
     }
   }
-  else if (confirm("Are you sure you want to leave this challenge early?")) {
+  else if (confirm("您确定要提前离开这个挑战吗？")) {
     game.currentChallenge = 0
     if (x <= 4) {
 			$(".challenge").eq(x - 1).css("border", "3px solid #00f")
